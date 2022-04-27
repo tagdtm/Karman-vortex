@@ -377,27 +377,27 @@ end
 
 function file(nx,ny,up,vp,p,Q,ω,i,xp,yp)
     if i%5 == 0
-        open(@sprintf("c:\\Users\\tasak\\Desktop\\CFD_project\\velocity\\vel_%03d.dat", i),"w") do fileIO
+        open(@sprintf("your_working_dir\\vel_%03d.dat", i),"w") do fileIO
             [(if j1 != ny
-                @printf(fileIO, "%11.6G %11.6G %11.6G %11.6G\n",xp[i1],yp[j1],up[i1,j1],vp[i1,j1]) # 最後の列以外．カンマ区切り
+                @printf(fileIO, "%11.6G %11.6G %11.6G %11.6G\n",xp[i1],yp[j1],up[i1,j1],vp[i1,j1]) 
             else
-                @printf(fileIO, "%11.6G %11.6G %11.6G %11.6G\n\n",xp[i1],yp[j1],up[i1,j1],vp[i1,j1]) # 最後の列で改行
+                @printf(fileIO, "%11.6G %11.6G %11.6G %11.6G\n\n",xp[i1],yp[j1],up[i1,j1],vp[i1,j1])
             end) for j1=1:ny, i1=1:nx]
         end
 
-        open(@sprintf("c:\\Users\\tasak\\Desktop\\CFD_project\\pressure\\p_%03d.dat", i),"w") do fileIO
+        open(@sprintf("your_working_dir\\p_%03d.dat", i),"w") do fileIO
             [(if j1 != ny
-                @printf(fileIO, "%11.6G %11.6G %11.6G\n",xp[i1],yp[j1],p[i1,j1]) # 最後の列以外．カンマ区切り
+                @printf(fileIO, "%11.6G %11.6G %11.6G\n",xp[i1],yp[j1],p[i1,j1]) 
             else
-                @printf(fileIO, "%11.6G %11.6G %11.6G\n\n",xp[i1],yp[j1],p[i1,j1]) # 最後の列で改行
+                @printf(fileIO, "%11.6G %11.6G %11.6G\n\n",xp[i1],yp[j1],p[i1,j1])
             end) for j1=1:ny, i1=1:nx]
         end
 
-        open(@sprintf("c:\\Users\\tasak\\Desktop\\CFD_project\\q\\q_%03d.dat", i),"w") do fileIO
+        open(@sprintf("your_working_dir\\q_%03d.dat", i),"w") do fileIO
             [(if j1 != ny
-                @printf(fileIO, "%11.6G %11.6G %11.6G %11.6G\n",xp[i1],yp[j1],Q[i1,j1],ω[i1,j1]) # 最後の列以外．カンマ区切り
+                @printf(fileIO, "%11.6G %11.6G %11.6G %11.6G\n",xp[i1],yp[j1],Q[i1,j1],ω[i1,j1])
             else
-                @printf(fileIO, "%11.6G %11.6G %11.6G %11.6G\n\n",xp[i1],yp[j1],Q[i1,j1],ω[i1,j1]) # 最後の列で改行
+                @printf(fileIO, "%11.6G %11.6G %11.6G %11.6G\n\n",xp[i1],yp[j1],Q[i1,j1],ω[i1,j1])
             end) for j1=1:ny, i1=1:nx]
         end
 
